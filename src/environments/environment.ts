@@ -1,2 +1,4 @@
-export enum Environment {
-}
+export const environment = {
+  production: false,
+  apiUrl: 'http://localhost:4000/api'
+};

@@ -1,1 +1,56 @@
-<p>register works!</p>
+<main class="container">
+    <section class="section-login">
+        <div class="section-main">
+            <div class="section-login-1">
+                <div class="section-login-1-main">
+
+                    <h1 class="section-login-1-title">WatsP</h1>
+                    <p class="section-login-1-text">Online chating application.</p>
+                    <div class="section-login-1-img">
+                        <img src="https://static.vecteezy.com/system/resources/previews/013/446/294/non_2x/chat-ui-application-design-concept-social-network-communication-service-screen-template-mobile-phone-live-chat-boxes-smartphone-online-app-on-screen-flat-style-illustration-ux-ui-vector.jpg" alt="">
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="section-login-2">
+                <div class="section-login-2-main">
+                    
+                    <h1 class="section-login-2-title">Register</h1>
+                    <form class="section-login-2-form" [formGroup]="registerform" >
+                        <div class="login-form-1">
+                            <label for="input-email">Email</label>
+                            <input type="text" id="input-email"  required formControlName="email">
+                            <div *ngIf="registerform.get('email').invalid && registerform.get('email').touched" style="color: red;">
+                               <div *ngIf="registerform.get('email').errors.required">Email is required</div>
+                               <div *ngIf="registerform.get('email').errors.pattern">invalide pattern</div>
+                            </div>
+                        </div>
+                        <div class="login-form-2">
+                            <label for="input-name">Full Name</label>
+                            <input type="text" id="input-name"  required formControlName="fullname">
+                            <div *ngIf="registerform.get('fullname').invalid && registerform.get('fullname').touched" style="color: red;">
+                                <div *ngIf="registerform.get('fullname').errors.required">Full name  is required</div>
+                             </div>
+                        </div>
+                        <div class="login-form-3">
+                            <label for="input-password">Password</label>
+                            <input type="password" id="input-password" placeholder="" required formControlName="password">
+                            <div *ngIf="registerform.get('password').invalid && registerform.get('password').touched" style="color: red;">
+                                <div *ngIf="registerform.get('password').errors.required">Email is required</div>
+                                <div *ngIf="registerform.get('password').errors.minlength">Password must be grater than 6</div>
+                                <div *ngIf="registerform.get('password').errors.maxlength">Password must be less than 11</div>
+                             </div>
+                        </div>
+                      
+                        <div class="login-form-submit-btn">
+                            <button  (click)="register(registerform.value)" >Create an Account</button>
+                        </div>
+                        <div class="login-form-5">
+                            <p>Already have an account? <a routerLink="">Sign In</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
